@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Alessandra — Creative Marketer & Brand Strategist Portfolio">
-    <title>ALESSANDRA — Creative Marketing & Editorial Direction</title>
+    <title>ALESSANDRA — Creative Marketer</title>
 
-    <!-- Google Fonts: Inter & Playfair Display -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -63,7 +61,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Squiggly Leather Red Underline */
         .squiggly-red {
             color: #8e2c2a;
             text-decoration: underline wavy #8e2c2a;
@@ -76,7 +73,6 @@
             background-size: 24px 24px;
         }
 
-        /* Sticky Card Stage */
         .sticky-stage {
             position: sticky;
             top: 0;
@@ -90,7 +86,6 @@
             overflow: hidden;
         }
 
-        /* 3D Flippable Editorial Card */
         .editorial-card {
             position: absolute;
             width: var(--base-card-w);
@@ -164,7 +159,6 @@
             display: block;
         }
 
-        /* Card Front: Authentic Playing Card Face with Corner Indices & Inner Frame */
         .card-front {
             background-color: #f4ece1;
             color: #1c1511;
@@ -237,7 +231,6 @@
             transform: rotateY(180deg);
         }
 
-        /* Scroll Track Steps */
         .scroll-overlay {
             position: relative;
             z-index: 10;
@@ -249,7 +242,6 @@
             width: 100%;
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -270,7 +262,6 @@
 </head>
 <body class="font-sans selection:bg-leather selection:text-cream">
 
-    <!-- Minimalist Top Navigation -->
     <header class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-5 flex items-center justify-between pointer-events-none">
         <a href="#top" class="pointer-events-auto text-xs font-semibold tracking-[0.25em] uppercase text-cream/90 hover:text-leather transition-colors bg-espresso/60 backdrop-blur-md px-3.5 py-2 rounded-full border border-cream/10">
             Alessandra
@@ -284,18 +275,13 @@
         </nav>
     </header>
 
-    <!-- =====================================================================
-         1. SCROLL TRACK: HERO + STICKY 3D EDITORIAL CARDS
-    ====================================================================== -->
+   
     <main id="top" class="relative bg-espresso editorial-grain">
 
-        <!-- Sticky Interactive Card Stage -->
         <div id="cardStage" class="sticky-stage" aria-label="Interactive Project Cards"></div>
 
-        <!-- Scrolling Typography Layer -->
         <div class="scroll-overlay">
             
-            <!-- Step 1: Full-Viewport Hero -->
             <section class="step-viewport flex flex-col items-center justify-center px-6 text-center relative">
                 <p class="text-[11px] md:text-xs uppercase tracking-[0.35em] text-cream/50 mb-4 font-medium">
                     Creative Marketing &bull; Brand Direction
@@ -309,7 +295,6 @@
                 </div>
             </section>
 
-            <!-- Step 2: Grid Alignment Target ("Pick a card") -->
             <section id="targetSection" class="step-viewport flex flex-col items-center justify-start pt-[14vh] md:pt-[16vh] px-6 text-center">
                 <h2 class="font-serif italic text-cream text-4xl sm:text-5xl md:text-6xl tracking-tight mb-3">
                     Pick a card
@@ -322,16 +307,13 @@
         </div>
     </main>
 
-    <!-- =====================================================================
-         2. ABOUT SECTION
-    ====================================================================== -->
+  
     <section id="about" class="relative z-20 bg-cream text-espresso py-28 md:py-36 px-6 md:px-12 border-t border-espresso/10">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-14 md:gap-20">
             
-            <!-- Profile card uses the embedded image -->
             <div class="shrink-0">
                 <div class="profile-card">
-                    <img src="card-back.png" alt="Alessandra Miller Monogram" />
+                    <img src="/images/card-back.png" alt="Alessandra Miller Monogram" />
                 </div>
             </div>
 
@@ -360,7 +342,6 @@
                     </p>
                 </div>
 
-                <!-- Core Disciplines Pills -->
                 <div class="mt-8 pt-6 border-t border-espresso/15 flex flex-wrap justify-center md:justify-start gap-2.5">
                     <span class="px-4 py-1.5 rounded-full text-xs font-medium border border-espresso/25 text-espresso">Brand Positioning</span>
                     <span class="px-4 py-1.5 rounded-full text-xs font-medium border border-espresso/25 text-espresso">Campaign Art Direction</span>
@@ -372,13 +353,10 @@
         </div>
     </section>
 
-    <!-- =====================================================================
-         3. CONTACT SECTION
-    ====================================================================== -->
+  
     <section id="contact" class="relative z-20 bg-espresso text-cream py-28 md:py-36 px-6 md:px-12 editorial-grain border-t border-cream/10">
         <div class="max-w-5xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-16">
             
-            <!-- Left Editorial Headline -->
             <div class="flex-1">
                 <p class="text-[11px] uppercase tracking-[0.28em] text-cream/50 mb-5">
                     Inquiries &amp; Commissions
@@ -393,7 +371,6 @@
                 </p>
             </div>
 
-            <!-- Right Minimalist Editorial Form -->
             <div class="w-full lg:w-[440px]">
                 <form id="contactForm" class="space-y-8">
                     <div class="flex flex-col gap-2">
@@ -431,7 +408,6 @@
 
         </div>
 
-        <!-- Editorial Footer -->
         <footer class="max-w-5xl mx-auto mt-24 pt-8 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] uppercase tracking-[0.2em] text-cream/40">
             <span>&copy; 2026 Alessandra Miller. All Rights Reserved.</span>
             <div class="flex items-center gap-6">
@@ -440,9 +416,7 @@
         </footer>
     </section>
 
-    <!-- =====================================================================
-         4. PROJECT DOSSIER MODAL
-    ====================================================================== -->
+  
     <div id="projectModal" class="fixed inset-0 z-50 bg-espressoDark/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 opacity-0 invisible transition-all duration-300" aria-hidden="true">
         <div id="modalDialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
             class="bg-cream text-espresso w-full max-w-4xl rounded-lg shadow-2xl p-6 sm:p-10 md:p-12 relative flex flex-col md:flex-row gap-8 md:gap-10 transform translate-y-6 transition-transform duration-300 max-h-[92vh] overflow-y-auto">
@@ -485,9 +459,7 @@
         </div>
     </div>
 
-    <!-- =====================================================================
-         5. FULLSCREEN LIGHTBOX (UN-CROPPED FULL ASPECT RATIO)
-    ====================================================================== -->
+   
     <div id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged Gallery Lightbox"
         class="fixed inset-0 z-[60] bg-espressoDark/95 backdrop-blur-lg flex items-center justify-center p-4 opacity-0 invisible transition-opacity duration-200">
         
@@ -507,9 +479,7 @@
         <div id="lbCounter" class="absolute bottom-6 left-0 right-0 text-center text-xs uppercase tracking-[0.25em] text-cream/60 z-20"></div>
     </div>
 
-    <!-- =====================================================================
-         6. JAVASCRIPT
-    ====================================================================== -->
+  
     <script>
         const PORTFOLIO_PROJECTS = [
             {
@@ -590,7 +560,6 @@
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const cardStage = document.getElementById('cardStage');
 
-        // --- 1. GENERATE CARDS WITH NEW IMAGE BACKING ---
         PORTFOLIO_PROJECTS.forEach((proj, idx) => {
             const cardBtn = document.createElement('button');
             cardBtn.type = 'button';
@@ -633,7 +602,6 @@
 
         const cards = document.querySelectorAll('.editorial-card');
 
-        // --- 2. REALISTIC CARD-THROWING HERO SHUFFLE ---
         const UNIFORM_SCATTER_SCALE = 1.25;
         const scatteredCoords = [
             [-38, -24, -14, UNIFORM_SCATTER_SCALE],
@@ -689,7 +657,6 @@
             });
         }
 
-        // --- 3. SCROLL-DRIVEN GRID ALIGNMENT ---
         const targetSection = document.getElementById('targetSection');
         let isGridActive = false;
 
@@ -759,9 +726,7 @@
             }
         });
 
-        // --- 4. EDITORIAL ART & MEDIA GENERATOR (UN-CROPPED LIGHTBOX + VIDEO SUPPORT) ---
         function renderSlideGraphic(slide, isLarge = false) {
-            // 1. Video Support (Autoplays muted loop in modal, full controls & uncropped in Lightbox)
             if (slide.video && slide.video.trim() !== '') {
                 if (isLarge) {
                     return `
@@ -785,7 +750,6 @@
                 `;
             }
 
-            // 2. Image Support (Shows full uncropped dimensions when enlarged in Lightbox)
             if (slide.image && slide.image.trim() !== '') {
                 if (isLarge) {
                     return `
@@ -844,7 +808,6 @@
             `;
         }
 
-        // --- 5. PROJECT MODAL LOGIC ---
         const projectModal = document.getElementById('projectModal');
         const modalDialog = document.getElementById('modalDialog');
         const mainPhotoVisual = document.getElementById('mainPhotoVisual');
@@ -936,7 +899,6 @@
             if (e.target === projectModal) closeProjectModal();
         });
 
-        // --- 6. LIGHTBOX GALLERY LOGIC ---
         const lightbox = document.getElementById('lightbox');
         const lbStage = document.getElementById('lbStage');
         const lbCounter = document.getElementById('lbCounter');
@@ -989,7 +951,6 @@
             }
         });
 
-        // --- 7. INTERACTIVE CONTACT FORM ---
         const contactForm = document.getElementById('contactForm');
         const formStatus = document.getElementById('formStatus');
 
