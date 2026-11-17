@@ -1,171 +1,1004 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Alessandra Miller — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-:root{--kraft:#a8794a;--paper:#ece5d6;--sheet:#e4dcc6;--pencil:#f0b90b;--red:#d23b2e;--ink:#000;--text:#1b1b1b;
---display:'Anton','Impact',sans-serif;--body:'DM Sans',system-ui,sans-serif;--hand:'Caveat','Comic Sans MS',cursive}
-*{box-sizing:border-box;margin:0}
-html,body{height:100%;background:var(--paper);color:var(--text);font-family:var(--body)}
-#stage{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden}
-#track{display:flex;height:100%;width:max-content;will-change:transform;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-.panel{flex:0 0 auto;height:100%;position:relative;display:flex;align-items:center;padding:0 6vw;overflow:hidden}
-.hero{width:max(100vw,980px);background:var(--kraft);gap:5vw}
-.work{width:max(100vw,900px);background:var(--paper);gap:4vw}
-.dark{width:max(80vw,760px);background:var(--ink);color:#f3efe6;flex-direction:column;align-items:flex-start;justify-content:center;gap:1.2rem}
-.end{width:max(70vw,680px);background:var(--sheet);flex-direction:column;align-items:flex-start;justify-content:center;gap:1.4rem}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alessandra — Creative Marketer & Brand Strategist Portfolio">
+    <title>ALESSANDRA — Creative Marketing & Editorial Direction</title>
 
-h1,h2{font-family:var(--display);font-weight:400;line-height:.92;letter-spacing:.01em;text-transform:uppercase}
-h1{font-size:clamp(3.4rem,11vh,8rem)}
-h2{font-size:clamp(2.6rem,9vh,6rem)}
-p{line-height:1.55;max-width:34ch}
-.hand{font-family:var(--hand);font-size:1.5rem;line-height:1.1}
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 
-/* ID badge */
-.badge{width:210px;background:#f5f1e8;border-radius:10px;padding:18px 16px 14px;text-align:center;box-shadow:0 12px 28px rgba(0,0,0,.35);transform:rotate(-3deg);flex:none;position:relative}
-.badge::before{content:"";position:absolute;top:-10px;left:50%;width:44px;height:14px;margin-left:-22px;background:#2b2b2b;border-radius:4px}
-.badge .logo{font-family:var(--display);font-size:1.6rem}
-.badge .photo{width:96px;height:96px;background:var(--kraft);margin:12px auto}
-.badge small{display:block;font-size:.6rem;color:#777;letter-spacing:.06em}
-.badge b{display:block;font-size:1.05rem;margin-top:2px}
-.bars{height:22px;margin-top:10px;background:repeating-linear-gradient(90deg,#000 0 2px,#f5f1e8 2px 4px,#000 4px 5px,#f5f1e8 5px 8px)}
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        espresso: '#1c1511',
+                        espressoDark: '#120d0a',
+                        cream: '#f4ece1',
+                        creamDark: '#e6dbcc',
+                        leather: '#8e2c2a',
+                        leatherDark: '#6b1e1c',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
-/* clipboard sheet */
-.sheet{background:#e8dfc6;width:min(460px,42vw);min-width:340px;padding:28px 28px 30px;transform:rotate(2deg);box-shadow:0 10px 30px rgba(0,0,0,.35);position:relative;flex:none}
-.sheet::before{content:"";position:absolute;top:-14px;left:50%;width:120px;height:34px;margin-left:-60px;background:#8b8f94;border-radius:4px}
-.sheet h1{color:var(--text);margin:8px 0 14px}
-.sheet .stats{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--text);margin-top:18px}
-.sheet .stats div{padding:9px 0;border-bottom:1px solid rgba(0,0,0,.35);font-size:.9rem}
-.sheet .stats div:nth-child(odd){border-right:1px solid rgba(0,0,0,.35);padding-right:10px}
-.sheet .stats div:nth-child(even){padding-left:12px}
-.sheet .stats b{display:block;font-family:var(--display);font-weight:400;font-size:1.5rem}
-.pencil{position:absolute;right:-70px;top:34px;width:230px;height:16px;background:linear-gradient(90deg,#e58f8f 0 8%,#b9b9b9 8% 14%,var(--pencil) 14% 92%,#e7c98d 92% 96%,#333 96%);transform:rotate(18deg);border-radius:3px;box-shadow:0 4px 8px rgba(0,0,0,.3)}
-.hint{position:absolute;bottom:22px;left:6vw;color:#f3e6cf;font-size:.9rem;display:flex;gap:.6rem;align-items:center}
+    <style>
+        :root {
+            --base-card-w: 185px;
+            --base-card-h: 259px;
+            --card-w: var(--base-card-w);
+            --card-h: var(--base-card-h);
+            --screen-h: 100vh;
+        }
 
-/* project */
-.cards{display:flex;gap:14px;flex:none}
-.card{background:#000;color:#fff;width:clamp(150px,17vw,200px);aspect-ratio:3/4.2;padding:12px;display:flex;flex-direction:column;justify-content:space-between;font-size:.62rem;letter-spacing:.05em}
-.card .art{flex:1;margin-bottom:10px;display:grid;place-items:center;font-family:var(--display);font-size:2.4rem;line-height:1}
-.a1 .art{background:linear-gradient(135deg,var(--red) 0 50%,#222 50%)}
-.a2 .art{background:repeating-linear-gradient(45deg,var(--red) 0 10px,#111 10px 20px,#fff 20px 24px,#111 24px 34px)}
-.a3{background:#9fd06a;color:#000}.a3 .art{background:#000;color:var(--red);font-size:3.4rem}
-.card:nth-child(2){margin-top:44px}.card:nth-child(3){margin-top:-24px}
-.work .copy{display:flex;flex-direction:column;gap:1rem;flex:none}
-.meta{display:flex;gap:.5rem;flex-wrap:wrap}
-.meta span{border:1.5px solid var(--text);border-radius:99px;padding:.2rem .7rem;font-size:.82rem}
-.note{background:var(--pencil);padding:14px 16px;transform:rotate(-2deg);max-width:230px;box-shadow:0 6px 14px rgba(0,0,0,.2)}
+        @supports (height: 100svh) {
+            :root {
+                --screen-h: 100svh;
+            }
+        }
 
-/* dark placeholder panels */
-.num{font-family:var(--display);font-size:clamp(6rem,30vh,15rem);line-height:.8;color:transparent;-webkit-text-stroke:2px #f3efe6}
-.dark .drop{width:min(520px,60vw);height:22vh;border:2px dashed #555;display:grid;place-items:center;color:#888;font-size:.9rem}
-.dark p{color:#c9c3b4}
+        @media (max-width: 768px) {
+            :root {
+                --base-card-w: 130px;
+                --base-card-h: 182px;
+            }
+        }
 
-/* end */
-.end a{font-family:var(--display);font-size:clamp(1.6rem,5vh,3rem);color:var(--text);text-decoration:none;border-bottom:4px solid var(--red);text-transform:uppercase}
-.end a:hover,.end a:focus-visible{background:var(--pencil);outline:none}
-a:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+        body {
+            background-color: #1c1511;
+            color: #f4ece1;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
 
-/* progress */
-#bar{position:fixed;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 0px);height:6px;background:rgba(0,0,0,.25);z-index:5}
-#bar i{display:block;height:100%;width:0;background:var(--pencil)}
-nav{position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);right:14px;z-index:5;display:flex;gap:6px}
-nav button{font:700 .78rem var(--body);background:#f5f1e8;border:2px solid var(--text);border-radius:99px;padding:.35rem .8rem;cursor:pointer;color:var(--text)}
-nav button:hover,nav button:focus-visible{background:var(--pencil);outline:none}
+        /* Squiggly Leather Red Underline */
+        .squiggly-red {
+            color: #8e2c2a;
+            text-decoration: underline wavy #8e2c2a;
+            text-decoration-thickness: 1.5px;
+            text-underline-offset: 6px;
+        }
 
-@media (max-width:700px){
- .hero{flex-direction:column;justify-content:center;width:100vw;gap:2rem;padding:0 8vw}
- .sheet{width:100%;min-width:0}.pencil{display:none}.hint{display:none}
- .work{width:150vw}nav button:nth-child(n+4){display:none}
-}
-@media (prefers-reduced-motion:reduce){#track{scroll-behavior:auto}}
-</style>
+        .editorial-grain {
+            background-image: radial-gradient(rgba(244, 236, 225, 0.04) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        /* Sticky Card Stage */
+        .sticky-stage {
+            position: sticky;
+            top: 0;
+            height: var(--screen-h);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            z-index: 40;
+            overflow: hidden;
+        }
+
+        /* 3D Flippable Editorial Card */
+        .editorial-card {
+            position: absolute;
+            width: var(--base-card-w);
+            height: var(--base-card-h);
+            min-width: var(--base-card-w);
+            max-width: var(--base-card-w);
+            min-height: var(--base-card-h);
+            max-height: var(--base-card-h);
+            aspect-ratio: 2.5 / 3.5;
+            border-radius: 12px;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            perspective: 1200px;
+            pointer-events: auto;
+            will-change: transform, opacity;
+            opacity: 0;
+            transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-out;
+            cursor: pointer;
+        }
+
+        .editorial-card:focus-visible {
+            outline: 2px solid #8e2c2a;
+            outline-offset: 6px;
+            border-radius: 12px;
+        }
+
+        .card-pivot {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            transform-style: preserve-3d;
+            transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .card-face {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 12px;
+            box-shadow: 0 18px 36px -8px rgba(0, 0, 0, 0.72), 0 4px 10px -2px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(28, 21, 17, 0.14);
+            overflow: hidden;
+            transition: box-shadow 0.45s ease;
+        }
+
+        .editorial-card.is-landed .card-face {
+            box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.65), 0 2px 6px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(28, 21, 17, 0.14);
+        }
+
+        /* Card Back: Uses your custom image */
+        .card-back {
+            background-color: #f4ece1;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* Card Front: Authentic Playing Card Face with Corner Indices & Inner Frame */
+        .card-front {
+            background-color: #f4ece1;
+            color: #1c1511;
+            transform: rotateY(180deg);
+            border: 1px solid #d5c6b1;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .card-front-frame {
+            position: absolute;
+            inset: 28px 24px;
+            border: 1px solid rgba(142, 44, 42, 0.22);
+            border-radius: 4px;
+            pointer-events: none;
+        }
+
+        .profile-card {
+            width: 185px;
+            height: 259px;
+            aspect-ratio: 2.5 / 3.5;
+            border-radius: 12px;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            background-color: #f4ece1;
+            padding: 0;
+            border: 1px solid rgba(28, 21, 17, 0.2);
+            transform: rotate(-3deg);
+            box-shadow: 16px 16px 0px rgba(28, 21, 17, 0.12);
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card:hover {
+            transform: rotate(0deg) translateY(-8px);
+        }
+
+        .profile-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .card-front {
+                padding: 10px;
+            }
+            .card-front-frame {
+                inset: 20px 16px;
+            }
+        }
+
+        .sticky-stage.is-grid .editorial-card:hover,
+        .sticky-stage.is-grid .editorial-card:focus-visible {
+            transform: translate(var(--gx), calc(var(--gy) - 16px)) rotate(0deg) scale(var(--gscale)) !important;
+            z-index: 60;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .sticky-stage.is-grid .editorial-card:hover .card-pivot,
+        .sticky-stage.is-grid .editorial-card:focus-visible .card-pivot,
+        .editorial-card.is-flipped .card-pivot {
+            transform: rotateY(180deg);
+        }
+
+        /* Scroll Track Steps */
+        .scroll-overlay {
+            position: relative;
+            z-index: 10;
+            margin-top: calc(-1 * var(--screen-h));
+        }
+
+        .step-viewport {
+            height: var(--screen-h);
+            width: 100%;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1c1511;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #8e2c2a;
+            border-radius: 99px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .editorial-card, .card-pivot {
+                transition: none !important;
+            }
+        }
+    </style>
 </head>
-<body>
-<nav aria-label="Sections">
- <button data-go="0">Intro</button><button data-go="1">GW Sports</button><button data-go="2">Next</button><button data-go="4">Contact</button>
-</nav>
+<body class="font-sans selection:bg-leather selection:text-cream">
 
-<div id="scroller"><div id="stage"><main id="track">
- <section class="panel hero" id="s0">
-  <div class="badge" aria-hidden="true">
-   <div class="logo">A★M</div><div class="photo"></div>
-   <small>graphic designer</small><b>Alessandra</b><small style="font-size:.7rem;color:#333">MILLER</small><div class="bars"></div>
-  </div>
-  <div class="sheet">
-   <p class="hand">scouting report</p>
-   <h1>Alessandra Miller</h1>
-   <p>Graphic designer who builds clean, product-first visuals for brands that move.</p>
-   <div class="stats">
-    <div><b>Position</b>Graphic design</div><div><b>Home turf</b>Branding, apparel, packaging</div>
-    <div><b>Tools</b>Affinity, Figma</div><div><b>Status</b>Open to work</div>
-   </div>
-   <span class="pencil" aria-hidden="true"></span>
-  </div>
-  <div class="hint">Scroll down to move right ⟶</div>
- </section>
+    <!-- Minimalist Top Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-5 flex items-center justify-between pointer-events-none">
+        <a href="#top" class="pointer-events-auto text-xs font-semibold tracking-[0.25em] uppercase text-cream/90 hover:text-leather transition-colors bg-espresso/60 backdrop-blur-md px-3.5 py-2 rounded-full border border-cream/10">
+            Alessandra
+        </a>
+        <nav class="pointer-events-auto flex items-center gap-2 sm:gap-4 bg-espresso/60 backdrop-blur-md px-4 py-2 rounded-full border border-cream/10">
+            <a href="#targetSection" class="text-[11px] uppercase tracking-[0.2em] text-cream/80 hover:text-cream transition-colors px-2 py-1">Index</a>
+            <span class="text-cream/20">/</span>
+            <a href="#about" class="text-[11px] uppercase tracking-[0.2em] text-cream/80 hover:text-cream transition-colors px-2 py-1">About</a>
+            <span class="text-cream/20">/</span>
+            <a href="#contact" class="text-[11px] uppercase tracking-[0.2em] text-cream/80 hover:text-cream transition-colors px-2 py-1">Contact</a>
+        </nav>
+    </header>
 
- <section class="panel work" id="s1">
-  <div class="cards" aria-label="GW Sports Apparel product graphics">
-   <div class="card a1"><div class="art">GW</div><span>LIMITED DROP · RUNNING SHORTS</span></div>
-   <div class="card a2"><div class="art"></div><span>ALL-OVER PRINT · TEE</span></div>
-   <div class="card a3"><div class="art">$99</div><span>HOLIDAY TEE · AVAILABLE IN 2 COLORS</span></div>
-  </div>
-  <div class="copy">
-   <h2>GW Sports<br>Apparel</h2>
-   <p>Product visuals for a sports apparel line: minimal, clean, and built to sell the garment first.</p>
-   <div class="meta"><span>Affinity Designer</span><span>Minimalist &amp; clean</span><span>Product visuals</span></div>
-   <div class="note hand">Christmas edition! Free shirt design info PDF available on request.</div>
-  </div>
- </section>
+    <!-- =====================================================================
+         1. SCROLL TRACK: HERO + STICKY 3D EDITORIAL CARDS
+    ====================================================================== -->
+    <main id="top" class="relative bg-espresso editorial-grain">
 
- <section class="panel dark" id="s2">
-  <div class="num">02</div>
-  <h2>Project name</h2>
-  <p>One line on what you made, who it was for, and what changed because of it.</p>
-  <div class="drop">Drop project image here</div>
- </section>
+        <!-- Sticky Interactive Card Stage -->
+        <div id="cardStage" class="sticky-stage" aria-label="Interactive Project Cards"></div>
 
- <section class="panel dark" id="s3">
-  <div class="num">03</div>
-  <h2>Project name</h2>
-  <p>One line on what you made, who it was for, and what changed because of it.</p>
-  <div class="drop">Drop project image here</div>
- </section>
+        <!-- Scrolling Typography Layer -->
+        <div class="scroll-overlay">
+            
+            <!-- Step 1: Full-Viewport Hero -->
+            <section class="step-viewport flex flex-col items-center justify-center px-6 text-center relative">
+                <p class="text-[11px] md:text-xs uppercase tracking-[0.35em] text-cream/50 mb-4 font-medium">
+                    Creative Marketing &bull; Brand Direction
+                </p>
+                <h1 class="font-sans font-extrabold uppercase text-cream/15 select-none leading-[0.82] tracking-[-0.05em] text-[clamp(54px,15.5vw,210px)]">
+                    ALESSANDRA
+                </h1>
+                <div class="absolute bottom-10 flex flex-col items-center gap-2 text-cream/40 animate-pulse">
+                    <span class="text-[10px] uppercase tracking-[0.25em]">Scroll to deal</span>
+                    <span class="w-px h-6 bg-cream/30"></span>
+                </div>
+            </section>
 
- <section class="panel end" id="s4">
-  <p class="hand" style="font-size:2rem">Full time. Let's talk.</p>
-  <h2>Let's build<br>something</h2>
-  <a href="mailto:hello@example.com">hello@example.com</a>
-  <a href="#" style="font-size:1.2rem">Instagram</a>
-  <a href="#" style="font-size:1.2rem">Behance</a>
- </section>
-</main></div></div>
-<div id="bar" aria-hidden="true"><i></i></div>
+            <!-- Step 2: Grid Alignment Target ("Pick a card") -->
+            <section id="targetSection" class="step-viewport flex flex-col items-center justify-start pt-[14vh] md:pt-[16vh] px-6 text-center">
+                <h2 class="font-serif italic text-cream text-4xl sm:text-5xl md:text-6xl tracking-tight mb-3">
+                    Pick a card
+                </h2>
+                <p class="text-[11px] sm:text-xs uppercase tracking-[0.24em] text-cream/60 max-w-md">
+                    Six selected campaigns. Hover to reveal &mdash; click to inspect.
+                </p>
+            </section>
 
-<script>
-const sc=document.getElementById('scroller'),t=document.getElementById('track'),fill=document.querySelector('#bar i');
-const panels=[...t.querySelectorAll('.panel')];
-let maxX=0;
-// page height = horizontal distance to travel + one screen, so scrolling down moves the track left
-function size(){maxX=Math.max(0,t.scrollWidth-innerWidth);sc.style.height=(maxX+innerHeight)+'px';draw()}
-function draw(){
- const y=Math.min(Math.max(scrollY,0),maxX);
- t.style.transform='translate3d('+(-y)+'px,0,0)';
- fill.style.width=(maxX?y/maxX*100:0)+'%';
-}
-addEventListener('scroll',draw,{passive:true});
-addEventListener('resize',size);
-addEventListener('load',size);
-if(document.fonts)document.fonts.ready.then(size);
-size();
-document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>scrollTo({top:Math.min(panels[b.dataset.go].offsetLeft,maxX),behavior:'smooth'}));
-addEventListener('keydown',e=>{
- if(e.key==='ArrowRight')scrollBy({top:innerWidth*.6,behavior:'smooth'});
- if(e.key==='ArrowLeft')scrollBy({top:-innerWidth*.6,behavior:'smooth'});
-});
-</script>
+        </div>
+    </main>
+
+    <!-- =====================================================================
+         2. ABOUT SECTION
+    ====================================================================== -->
+    <section id="about" class="relative z-20 bg-cream text-espresso py-28 md:py-36 px-6 md:px-12 border-t border-espresso/10">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-14 md:gap-20">
+            
+            <!-- Profile card uses the embedded image -->
+            <div class="shrink-0">
+                <div class="profile-card">
+                    <img src="card-back.png" alt="Alessandra Miller Monogram" />
+                </div>
+            </div>
+
+            <!-- Editorial Bio Copy -->
+            <div class="flex-1 text-center md:text-left">
+                <p class="text-xs font-semibold uppercase tracking-[0.25em] text-leather mb-3">
+                    The Strategist
+                </p>
+                <h2 class="font-sans font-extrabold text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight text-espresso mb-8">
+                    ALESSANDRA
+                </h2>
+                
+                <div class="space-y-6 text-base sm:text-lg leading-relaxed text-espresso/85">
+                    <p>
+                        <span class="block text-[11px] font-semibold uppercase tracking-[0.22em] text-leather mb-1">
+                            My take 
+                        </span>
+                        I'm an emerging creative marketer and avid pop-culture observer. Admittedly chronically tuned into internet subcultures, K-culture, and the visual trends shaping what people actually care about. I believe that it really is that deep
+                        and each element has the opportunity to be used as a tool for storytelling.
+                    </p>
+                    <p>
+                        <span class="block text-[11px] font-semibold uppercase tracking-[0.22em] text-leather mb-1">
+                            Based In Seoul, roots in manila
+                        </span>
+                        I bring a cross-cultural lens to digital storytelling—translating ideas into social campaigns, newsletters, and brand visuals that feel fresh, human, and mentally engaging.
+                    </p>
+                </div>
+
+                <!-- Core Disciplines Pills -->
+                <div class="mt-8 pt-6 border-t border-espresso/15 flex flex-wrap justify-center md:justify-start gap-2.5">
+                    <span class="px-4 py-1.5 rounded-full text-xs font-medium border border-espresso/25 text-espresso">Brand Positioning</span>
+                    <span class="px-4 py-1.5 rounded-full text-xs font-medium border border-espresso/25 text-espresso">Campaign Art Direction</span>
+                    <span class="px-4 py-1.5 rounded-full text-xs font-medium border border-espresso/25 text-espresso">Visual &amp; Deck Design</span>
+                    <span class="px-4 py-1.5 rounded-full text-xs font-medium border border-espresso/25 text-espresso">Web &amp; Content Creation</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         3. CONTACT SECTION
+    ====================================================================== -->
+    <section id="contact" class="relative z-20 bg-espresso text-cream py-28 md:py-36 px-6 md:px-12 editorial-grain border-t border-cream/10">
+        <div class="max-w-5xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-16">
+            
+            <!-- Left Editorial Headline -->
+            <div class="flex-1">
+                <p class="text-[11px] uppercase tracking-[0.28em] text-cream/50 mb-5">
+                    Inquiries &amp; Commissions
+                </p>
+                <h2 class="font-serif font-normal text-6xl sm:text-7xl md:text-8xl leading-[0.9] tracking-tight text-cream">
+                    let&rsquo;s<br>
+                    work<br>
+                    <em class="italic text-leather">together</em>
+                </h2>
+                <p class="mt-8 text-sm text-cream/65 max-w-sm leading-relaxed">
+                    Available for seasonal campaign direction, brand launches, and creative marketing retainers worldwide.
+                </p>
+            </div>
+
+            <!-- Right Minimalist Editorial Form -->
+            <div class="w-full lg:w-[440px]">
+                <form id="contactForm" class="space-y-8">
+                    <div class="flex flex-col gap-2">
+                        <label for="name" class="text-[11px] font-medium uppercase tracking-[0.22em] text-cream/60">
+                            Name
+                        </label>
+                        <input type="text" id="name" name="name" required placeholder="Your full name"
+                            class="w-full bg-transparent border-b border-cream/20 py-3 text-cream placeholder-cream/25 text-base font-light focus:outline-none focus:border-leather transition-colors rounded-none">
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label for="email" class="text-[11px] font-medium uppercase tracking-[0.22em] text-cream/60">
+                            Email
+                        </label>
+                        <input type="email" id="email" name="email" required placeholder="name@maison.com"
+                            class="w-full bg-transparent border-b border-cream/20 py-3 text-cream placeholder-cream/25 text-base font-light focus:outline-none focus:border-leather transition-colors rounded-none">
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label for="message" class="text-[11px] font-medium uppercase tracking-[0.22em] text-cream/60">
+                            Brief / Message
+                        </label>
+                        <textarea id="message" name="message" rows="3" required placeholder="Tell me about the campaign, timeline, or vision..."
+                            class="w-full bg-transparent border-b border-cream/20 py-3 text-cream placeholder-cream/25 text-base font-light focus:outline-none focus:border-leather transition-colors resize-y rounded-none"></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-leather hover:bg-leatherDark text-cream font-semibold text-xs uppercase tracking-[0.25em] py-5 px-8 rounded-md transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-black/30">
+                        Dispatch Inquiry
+                    </button>
+
+                    <div id="formStatus" role="status" aria-live="polite" class="min-h-[24px] text-xs tracking-wide text-cream/80"></div>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- Editorial Footer -->
+        <footer class="max-w-5xl mx-auto mt-24 pt-8 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] uppercase tracking-[0.2em] text-cream/40">
+            <span>&copy; 2026 Alessandra Miller. All Rights Reserved.</span>
+            <div class="flex items-center gap-6">
+                <a href="#top" class="hover:text-cream transition-colors">LinkedIn</a>
+            </div>
+        </footer>
+    </section>
+
+    <!-- =====================================================================
+         4. PROJECT DOSSIER MODAL
+    ====================================================================== -->
+    <div id="projectModal" class="fixed inset-0 z-50 bg-espressoDark/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 opacity-0 invisible transition-all duration-300" aria-hidden="true">
+        <div id="modalDialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
+            class="bg-cream text-espresso w-full max-w-4xl rounded-lg shadow-2xl p-6 sm:p-10 md:p-12 relative flex flex-col md:flex-row gap-8 md:gap-10 transform translate-y-6 transition-transform duration-300 max-h-[92vh] overflow-y-auto">
+            
+            <button id="modalClose" type="button" aria-label="Close project modal"
+                class="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center text-2xl text-espresso/70 hover:text-leather hover:bg-espresso/5 transition-colors z-10">
+                &times;
+            </button>
+
+            <div class="w-full md:w-80 shrink-0 flex flex-col gap-3">
+                <button id="mainPhotoBtn" type="button" aria-label="Enlarge campaign visual"
+                    class="group relative w-full h-72 sm:h-80 rounded-md overflow-hidden border border-espresso/15 bg-creamDark cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-leather">
+                    <div id="mainPhotoVisual" class="w-full h-full flex flex-col items-center justify-center transition-transform duration-500 group-hover:scale-105"></div>
+                    <span class="absolute bottom-3 right-3 bg-espresso text-cream text-[10px] uppercase tracking-[0.18em] px-3 py-1.5 rounded-sm shadow z-20">
+                        Enlarge +
+                    </span>
+                </button>
+                <div id="modalThumbs" class="grid grid-cols-4 gap-2.5"></div>
+            </div>
+
+            <div class="flex-1 flex flex-col justify-between gap-6">
+                <div>
+                    <div class="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-leather mb-2">
+                        <span id="modalNumber">01</span>
+                        <span>&bull;</span>
+                        <span id="modalCategory">Campaign Strategy</span>
+                    </div>
+                    <h2 id="modalTitle" class="font-serif font-semibold text-3xl sm:text-4xl text-espresso leading-tight mb-4">
+                        Project Title
+                    </h2>
+                    <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-espresso/50 mb-2">
+                        Executive Summary
+                    </p>
+                    <p id="modalDesc" class="text-sm sm:text-base text-espresso/85 leading-relaxed"></p>
+                </div>
+                <div class="space-y-5 pt-4 border-t border-espresso/10">
+                    <div id="modalTags" class="flex flex-wrap gap-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         5. FULLSCREEN LIGHTBOX (UN-CROPPED FULL ASPECT RATIO)
+    ====================================================================== -->
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged Gallery Lightbox"
+        class="fixed inset-0 z-[60] bg-espressoDark/95 backdrop-blur-lg flex items-center justify-center p-4 opacity-0 invisible transition-opacity duration-200">
+        
+        <button id="lbClose" type="button" aria-label="Close lightbox"
+            class="absolute top-6 right-6 w-12 h-12 rounded-full border border-cream/20 text-cream hover:bg-leather hover:border-leather flex items-center justify-center text-2xl transition-colors z-20">
+            &times;
+        </button>
+        <button id="lbPrev" type="button" aria-label="Previous slide"
+            class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-cream/20 text-cream hover:bg-leather hover:border-leather flex items-center justify-center text-lg transition-colors z-20">
+            &#8592;
+        </button>
+        <div id="lbStage" class="w-full max-w-5xl max-h-[82vh] flex items-center justify-center p-2"></div>
+        <button id="lbNext" type="button" aria-label="Next slide"
+            class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-cream/20 text-cream hover:bg-leather hover:border-leather flex items-center justify-center text-lg transition-colors z-20">
+            &#8594;
+        </button>
+        <div id="lbCounter" class="absolute bottom-6 left-0 right-0 text-center text-xs uppercase tracking-[0.25em] text-cream/60 z-20"></div>
+    </div>
+
+    <!-- =====================================================================
+         6. JAVASCRIPT
+    ====================================================================== -->
+    <script>
+        const PORTFOLIO_PROJECTS = [
+            {
+                number: '01', suit: '&spades;', suitColor: 'text-espresso',
+                category: 'Email & SNS Marketing', title: 'Daebak Campaigns',
+                description: 'Designed weekly newsletters and Klaviyo automated flows, alongside engaging static & video social media campaigns.',
+                tags: ['Klaviyo', 'Capcut', 'Canva', 'Affinity Designer'],
+                slides: [
+                    { label: '01 / Back to School Campaign', bg: '#f4ece1', fg: '#1c1511', motif: 'arch', image: "BTS Newsletter Main.jpg" },
+                    { label: '02 / 24H Flash Sale', bg: '#8e2c2a', fg: '#f4ece1', motif: 'grid', image: "24H Newsletter.jpg" },
+                    { label: '03 / Daebak x Zooahpet Box', bg: '#1c1511', fg: '#f4ece1', motif: 'circle', image: "Zooahpet Main.jpg"},
+                    { label: '04 / K-Drama Autumn Picks', bg: '#e6dbcc', fg: '#1c1511', motif: 'lines', image: 'Autumn Picks.jpg' }
+                ]
+            },
+            {
+                number: '02', suit: '&hearts;', suitColor: 'text-leather',
+                category: 'Website Design & SNS Content', title: 'God\'s Will Apparel',
+                description: 'Designed comprehensive website mockups and e-commerce user journeys for God\'s Will, a high-performance sportswear brand.',
+                tags: ['Figma', 'Affinity Designer', 'E-Commerce UX'],
+                slides: [
+                    { label: '01 / Homepage Hero Drop', bg: '#1c1511', fg: '#f4ece1', motif: 'circle', image: 'GW WEB Hero.png' },
+                    { label: '02 / The Process & Production', bg: '#e6dbcc', fg: '#1c1511', motif: 'arch', image: 'GW WEB Process.png' },
+                    { label: '03 / Limited Edition Shorts', bg: '#8e2c2a', fg: '#f4ece1', motif: 'lines', image: 'Street Code Shorts.jpg' },
+                    { label: '04 / Christmas Special Drop', bg: '#2b1e17', fg: '#f4ece1', motif: 'grid', image: 'GW Grinch.jpg' }
+                ]
+            },
+            {
+                number: '03', suit: '&clubs;', suitColor: 'text-espresso',
+                category: 'Website Design & Branding', title: 'KUCC Center',
+                description: 'Created the foundational brand identity, multilingual social assets, and 5-page Wix/HTML website for a Korea-Ukraine business consulting startup.',
+                tags: ['Wix', 'HTML/CSS', 'Brand Architecture', 'Figma'],
+                slides: [
+                    { label: '01 / Homepage Hero Bridge', bg: '#1c1511', fg: '#f4ece1', motif: 'grid', image: 'KUCC WEB HERO.PNG' },
+                    { label: '02 / Business Services Matrix', bg: '#e6dbcc', fg: '#1c1511', motif: 'arch', image: 'KUCC WEB SERVICES.png' },
+                    { label: '03 / First SNS Greeting Posts', bg: '#8e2c2a', fg: '#f4ece1', motif: 'circle', image: 'KUCCGreetings.jpg' },
+                    { label: '04 / Understanding Korean Business Carousel', bg: '#261b15', fg: '#f4ece1', motif: 'lines', image: 'KUCC MATTERS MAIN.jpg' }
+                ]
+            },
+            {
+                number: '04', suit: '&diams;', suitColor: 'text-leather',
+                category: 'PSA Campaign', title: 'Don\'t Look Up',
+                description: 'Conceived a striking OOH and digital campaign for a university marketing class. Leveraged reverse psychology copywriting to combat phubbing.',
+                tags: ['Copywriting', 'OOH Advertising', 'Meta Ads', 'Concept Art'],
+                slides: [
+                    { label: '01 / Instagram Sponsored Ad', bg: '#2544d8', fg: '#f4ece1', motif: 'lines', image: 'instagram-ad-mockup.png' },
+                    { label: '02 / Billboard OOH Mockup', bg: '#1c1511', fg: '#f4ece1', motif: 'grid', image: 'Blank Bill Board Mockup.jpg' },
+                    { label: '03 / Bus Shelter Poster', bg: '#8e2c2a', fg: '#f4ece1', motif: 'arch', image: 'MOCKUP - BUS STOP.jpg' },
+                    { label: '04 / Ground Decal & Stickers', bg: '#e6dbcc', fg: '#1c1511', motif: 'circle', image: 'Floor QR AD.jpg' }
+                ]
+            },
+            {
+                number: '05', suit: '&spades;', suitColor: 'text-espresso',
+                category: 'Video & 3D Production', title: 'Community / SNS Motion',
+                description: 'Executed cinematic 3D product renders in Blender and dynamic vertical video edits in Capcut for sports apparel business and Korean E-commerce startup.',
+                tags: ['Blender 3D', 'Capcut', 'Motion Direction', 'Content Creation'],
+                slides: [
+                    // Paste your .mp4 filenames inside video: '' below!
+                    { label: '01 / 3D Jersey Display Wall', bg: '#1c1511', fg: '#f4ece1', motif: 'arch', video: '', image: 'GW Jersey Wall.mp4' },
+                    { label: '02 / TU Camp Teaser / New Logo Reveal', bg: '#8e2c2a', fg: '#f4ece1', motif: 'circle', video: '', image: 'GW TU Teaser.mp4' },
+                    { label: '03 / Snack Box', bg: '#e6dbcc', fg: '#1c1511', motif: 'lines', video: '', image: 'DB Snack BOx.mp4' },
+                    { label: '04 / DDP Event Teaser', bg: '#332219', fg: '#f4ece1', motif: 'grid', video: '', image: 'DB Teaser.mp4' }
+                ]
+            },
+            {
+                number: '06', suit: '&hearts;', suitColor: 'text-leather',
+                category: 'Presentation Design', title: 'Strategy & Deck Design',
+                description: 'Crafted data-backed, visually compelling presentation decks ranging from text-heavy market analyses to highly visual campaign proposals.',
+                tags: ['Canva', 'Market Research', 'Data Storytelling', 'Affinity'],
+                slides: [
+                    { label: '01 / Scrub Daddy Campaign Proposal', bg: '#8e2c2a', fg: '#f4ece1', motif: 'circle', image: 'Scrub Daddy.png' },
+                    { label: '02 / Tropical Hut Rebranding', bg: '#f4ece1', fg: '#1c1511', motif: 'arch', image: 'Tropical Hut.png' },
+                    { label: '03 / Comic Themed Analysis Deck', bg: '#1c1511', fg: '#f4ece1', motif: 'grid', image: 'Marvel Analysis.png' },
+                    { label: '04 / Voodoo Doll Themed Theory Analysis Deck', bg: '#e6dbcc', fg: '#1c1511', motif: 'lines', image: 'Voodoo Theory Analysis.png' }
+                ]
+            }
+        ];
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const cardStage = document.getElementById('cardStage');
+
+        // --- 1. GENERATE CARDS WITH NEW IMAGE BACKING ---
+        PORTFOLIO_PROJECTS.forEach((proj, idx) => {
+            const cardBtn = document.createElement('button');
+            cardBtn.type = 'button';
+            cardBtn.className = 'editorial-card';
+            cardBtn.setAttribute('aria-label', `Playing Card ${proj.number}: ${proj.title}. Click to view project.`);
+
+            cardBtn.innerHTML = `
+                <span class="card-pivot">
+                    <!-- Back Face: Custom Image -->
+                    <span class="card-face card-back">
+                        <img src="card-back.png" alt="Card Back" />
+                    </span>
+
+                    <!-- Front Face -->
+                    <span class="card-face card-front">
+                        <span class="card-front-frame"></span>
+
+                        <span class="absolute top-2.5 left-2.5 md:top-3 md:left-3 flex flex-col items-center leading-none ${proj.suitColor} select-none">
+                            <span class="font-serif font-bold text-xs md:text-sm tracking-tighter">${proj.number}</span>
+                            <span class="text-xs md:text-sm mt-0.5">${proj.suit}</span>
+                        </span>
+
+                        <span class="relative z-10 px-4 md:px-6 flex flex-col items-center justify-center my-auto">
+                            <span class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-leather font-semibold mb-1.5">${proj.category}</span>
+                            <span class="font-serif font-semibold text-base md:text-xl leading-snug text-espresso">${proj.title}</span>
+                            <span class="mt-2 text-xs ${proj.suitColor} opacity-75">${proj.suit}</span>
+                        </span>
+
+                        <span class="absolute bottom-2.5 right-2.5 md:bottom-3 md:right-3 flex flex-col items-center leading-none rotate-180 ${proj.suitColor} select-none">
+                            <span class="font-serif font-bold text-xs md:text-sm tracking-tighter">${proj.number}</span>
+                            <span class="text-xs md:text-sm mt-0.5">${proj.suit}</span>
+                        </span>
+                    </span>
+                </span>
+            `;
+
+            cardBtn.addEventListener('click', () => openProjectModal(idx, cardBtn));
+            cardStage.appendChild(cardBtn);
+        });
+
+        const cards = document.querySelectorAll('.editorial-card');
+
+        // --- 2. REALISTIC CARD-THROWING HERO SHUFFLE ---
+        const UNIFORM_SCATTER_SCALE = 1.25;
+        const scatteredCoords = [
+            [-38, -24, -14, UNIFORM_SCATTER_SCALE],
+            [ 34, -32,   9, UNIFORM_SCATTER_SCALE],
+            [-22,  28,  -6, UNIFORM_SCATTER_SCALE],
+            [ 44,  18,  16, UNIFORM_SCATTER_SCALE],
+            [-46,  12, -11, UNIFORM_SCATTER_SCALE],
+            [ 12, -14,   4, UNIFORM_SCATTER_SCALE]
+        ];
+
+        const offscreenOrigins = [
+            { x: '-115vw', y: '-75vh', r: -210 },
+            { x:  '120vw', y: '-65vh', r:  195 },
+            { x: '-110vw', y:  '85vh', r:  240 },
+            { x:  '115vw', y:  '80vh', r: -185 },
+            { x:  '-45vw', y: '-115vh', r:  165 },
+            { x:   '50vw', y:  '115vh', r: -225 }
+        ];
+
+        function applyScatterPosition(card, index) {
+            const isMobile = window.innerWidth < 768;
+            const factor = isMobile ? 0.52 : 1;
+            const [x, y, rot, scale] = scatteredCoords[index];
+            card.style.zIndex = String(10 + index);
+            card.style.transform = `translate(${x * factor}px, ${y * factor}px) rotate(${rot}deg) scale(${scale})`;
+        }
+
+        cards.forEach((card, i) => {
+            if (prefersReducedMotion) {
+                card.style.opacity = '1';
+                card.classList.add('is-landed');
+                applyScatterPosition(card, i);
+                return;
+            }
+            const origin = offscreenOrigins[i];
+            card.style.zIndex = String(10 + i);
+            card.style.transform = `translate(${origin.x}, ${origin.y}) rotate(${origin.r}deg) scale(1.55)`;
+            card.style.opacity = '0';
+        });
+
+        if (!prefersReducedMotion) {
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    cards.forEach((card, i) => {
+                        const tossDelay = 120 + i * 125;
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            applyScatterPosition(card, i);
+                            setTimeout(() => card.classList.add('is-landed'), 650);
+                        }, tossDelay);
+                    });
+                });
+            });
+        }
+
+        // --- 3. SCROLL-DRIVEN GRID ALIGNMENT ---
+        const targetSection = document.getElementById('targetSection');
+        let isGridActive = false;
+
+        function positionCardsInGrid() {
+            const vw = window.innerWidth;
+            const styles = getComputedStyle(document.documentElement);
+            const cardW = parseFloat(styles.getPropertyValue('--base-card-w'));
+            const cardH = parseFloat(styles.getPropertyValue('--base-card-h'));
+
+            const isWide = vw >= 1150;
+            const cols = isWide ? 6 : 3;
+            const uniformGridScale = isWide ? 0.88 : (vw >= 768 ? 0.82 : 0.76);
+            const gapX = isWide ? 24 : (vw >= 768 ? 22 : 12);
+            const gapY = vw >= 768 ? 26 : 14;
+            const rows = Math.ceil(cards.length / cols);
+
+            const scaledW = cardW * uniformGridScale;
+            const scaledH = cardH * uniformGridScale;
+            const verticalOffset = rows > 1 ? 55 : 35;
+
+            cards.forEach((card, i) => {
+                const col = i % cols;
+                const row = Math.floor(i / cols);
+                const x = (col - (cols - 1) / 2) * (scaledW + gapX);
+                const y = (row - (rows - 1) / 2) * (scaledH + gapY) + verticalOffset;
+
+                card.style.setProperty('--gx', `${x}px`);
+                card.style.setProperty('--gy', `${y}px`);
+                card.style.setProperty('--gscale', uniformGridScale);
+                card.style.transform = `translate(${x}px, ${y}px) rotate(0deg) scale(${uniformGridScale})`;
+            });
+        }
+
+        function toggleGridState(active) {
+            if (active === isGridActive) return;
+            isGridActive = active;
+            cardStage.classList.toggle('is-grid', active);
+
+            if (active) {
+                positionCardsInGrid();
+            } else {
+                cards.forEach((card, i) => applyScatterPosition(card, i));
+            }
+        }
+
+        const gridObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    toggleGridState(true);
+                } else if (entry.boundingClientRect.top > 0) {
+                    toggleGridState(false);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px -28% 0px',
+            threshold: 0
+        });
+
+        gridObserver.observe(targetSection);
+
+        window.addEventListener('resize', () => {
+            if (isGridActive) {
+                positionCardsInGrid();
+            } else {
+                cards.forEach((card, i) => applyScatterPosition(card, i));
+            }
+        });
+
+        // --- 4. EDITORIAL ART & MEDIA GENERATOR (UN-CROPPED LIGHTBOX + VIDEO SUPPORT) ---
+        function renderSlideGraphic(slide, isLarge = false) {
+            // 1. Video Support (Autoplays muted loop in modal, full controls & uncropped in Lightbox)
+            if (slide.video && slide.video.trim() !== '') {
+                if (isLarge) {
+                    return `
+                        <div class="relative flex flex-col items-center justify-center">
+                            <video src="${slide.video}" controls autoplay loop playsinline
+                                class="max-w-[90vw] max-h-[75vh] w-auto h-auto rounded-lg shadow-2xl border border-cream/15 bg-black"></video>
+                            <span class="mt-3 text-cream font-serif italic text-sm sm:text-base">${slide.label}</span>
+                        </div>
+                    `;
+                }
+                return `
+                    <div class="w-full h-full relative group bg-espressoDark flex items-center justify-center">
+                        <video src="${slide.video}" autoplay muted loop playsinline class="w-full h-full object-contain"></video>
+                        <span class="absolute top-2.5 left-2.5 bg-leather text-cream text-[9px] uppercase tracking-[0.2em] px-2.5 py-1 rounded-sm shadow">
+                            &#9654; Video
+                        </span>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <span class="text-cream font-serif italic text-sm sm:text-base drop-shadow-md">${slide.label}</span>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // 2. Image Support (Shows full uncropped dimensions when enlarged in Lightbox)
+            if (slide.image && slide.image.trim() !== '') {
+                if (isLarge) {
+                    return `
+                        <div class="relative flex flex-col items-center justify-center">
+                            <img src="${slide.image}" alt="${slide.label}"
+                                class="max-w-[90vw] max-h-[75vh] w-auto h-auto object-contain rounded-lg shadow-2xl border border-cream/15" />
+                            <span class="mt-3 text-cream font-serif italic text-sm sm:text-base">${slide.label}</span>
+                        </div>
+                    `;
+                }
+                return `
+                    <div class="w-full h-full relative group">
+                        <img src="${slide.image}" alt="${slide.label}" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <span class="text-cream font-serif italic text-sm sm:text-base drop-shadow-md">${slide.label}</span>
+                        </div>
+                    </div>
+                `;
+            }
+
+            const sizeClass = isLarge ? 'w-36 h-36' : 'w-20 h-20';
+            const wrapperClass = isLarge ? 'w-[min(85vw,600px)] h-[60vh] rounded-lg shadow-2xl border border-cream/15' : 'w-full h-full';
+            let svgShape = '';
+
+            if (slide.motif === 'arch') {
+                svgShape = `<svg class="${sizeClass} opacity-80" viewBox="0 0 100 100" fill="none" stroke="${slide.fg}" stroke-width="1.5">
+                    <path d="M20 90 V45 A30 30 0 0 1 80 45 V90 Z" />
+                    <line x1="50" y1="15" x2="50" y2="90" stroke-dasharray="3 3"/>
+                </svg>`;
+            } else if (slide.motif === 'circle') {
+                svgShape = `<svg class="${sizeClass} opacity-80" viewBox="0 0 100 100" fill="none" stroke="${slide.fg}" stroke-width="1.5">
+                    <circle cx="50" cy="50" r="36" />
+                    <circle cx="50" cy="50" r="22" stroke-dasharray="2 3" />
+                </svg>`;
+            } else if (slide.motif === 'grid') {
+                svgShape = `<svg class="${sizeClass} opacity-80" viewBox="0 0 100 100" fill="none" stroke="${slide.fg}" stroke-width="1.5">
+                    <rect x="18" y="18" width="64" height="64" />
+                    <line x1="50" y1="18" x2="50" y2="82" />
+                    <line x1="18" y1="50" x2="82" y2="50" />
+                </svg>`;
+            } else {
+                svgShape = `<svg class="${sizeClass} opacity-80" viewBox="0 0 100 100" fill="none" stroke="${slide.fg}" stroke-width="1.5">
+                    <line x1="20" y1="25" x2="80" y2="25" />
+                    <line x1="20" y1="42" x2="80" y2="42" />
+                    <line x1="20" y1="59" x2="80" y2="59" />
+                    <line x1="20" y1="76" x2="60" y2="76" />
+                </svg>`;
+            }
+
+            return `
+                <div style="background-color: ${slide.bg}; color: ${slide.fg};" class="${wrapperClass} flex flex-col items-center justify-between p-6 select-none">
+                    <span class="text-[10px] uppercase tracking-[0.25em] opacity-70">Archive Plate</span>
+                    ${svgShape}
+                    <span class="font-serif italic text-sm sm:text-base tracking-wide">${slide.label}</span>
+                </div>
+            `;
+        }
+
+        // --- 5. PROJECT MODAL LOGIC ---
+        const projectModal = document.getElementById('projectModal');
+        const modalDialog = document.getElementById('modalDialog');
+        const mainPhotoVisual = document.getElementById('mainPhotoVisual');
+        const modalThumbs = document.getElementById('modalThumbs');
+        let activeProject = null;
+        let activeSlideIdx = 0;
+        let previouslyFocused = null;
+
+        function selectModalSlide(index) {
+            activeSlideIdx = index;
+            const slide = activeProject.slides[index];
+            mainPhotoVisual.innerHTML = renderSlideGraphic(slide, false);
+
+            modalThumbs.querySelectorAll('button').forEach((btn, idx) => {
+                if (idx === index) {
+                    btn.classList.add('ring-2', 'ring-leather', 'border-leather');
+                    btn.setAttribute('aria-current', 'true');
+                } else {
+                    btn.classList.remove('ring-2', 'ring-leather', 'border-leather');
+                    btn.setAttribute('aria-current', 'false');
+                }
+            });
+        }
+
+        function openProjectModal(projectIndex, triggerEl) {
+            activeProject = PORTFOLIO_PROJECTS[projectIndex];
+            previouslyFocused = triggerEl || null;
+
+            document.getElementById('modalNumber').textContent = activeProject.number;
+            document.getElementById('modalCategory').textContent = activeProject.category;
+            document.getElementById('modalTitle').textContent = activeProject.title;
+            document.getElementById('modalDesc').textContent = activeProject.description;
+
+            const tagsContainer = document.getElementById('modalTags');
+            tagsContainer.innerHTML = '';
+            activeProject.tags.forEach((tag) => {
+                const pill = document.createElement('span');
+                pill.className = 'px-3.5 py-1 rounded-full text-xs font-medium border border-espresso/20 text-espresso/90';
+                pill.textContent = tag;
+                tagsContainer.appendChild(pill);
+            });
+
+            modalThumbs.innerHTML = '';
+            activeProject.slides.forEach((slide, idx) => {
+                const thumbBtn = document.createElement('button');
+                thumbBtn.type = 'button';
+                thumbBtn.className = 'h-14 rounded border border-espresso/15 overflow-hidden text-[11px] font-semibold transition-all flex items-center justify-center relative';
+                
+                if (slide.video && slide.video.trim() !== '') {
+                    thumbBtn.style.backgroundColor = '#1c1511';
+                    thumbBtn.style.color = '#f4ece1';
+                    thumbBtn.innerHTML = `<video src="${slide.video}" muted playsinline class="w-full h-full object-cover opacity-70"></video><span class="absolute text-xs">&#9654;</span>`;
+                } else if (slide.image && slide.image.trim() !== '') {
+                    thumbBtn.innerHTML = `<img src="${slide.image}" class="w-full h-full object-cover" />`;
+                } else {
+                    thumbBtn.style.backgroundColor = slide.bg;
+                    thumbBtn.style.color = slide.fg;
+                    thumbBtn.textContent = `0${idx + 1}`;
+                }
+                
+                thumbBtn.setAttribute('aria-label', `View ${slide.label}`);
+                thumbBtn.addEventListener('click', () => selectModalSlide(idx));
+                modalThumbs.appendChild(thumbBtn);
+            });
+
+            selectModalSlide(0);
+
+            projectModal.classList.remove('opacity-0', 'invisible');
+            projectModal.classList.add('opacity-100', 'visible');
+            projectModal.setAttribute('aria-hidden', 'false');
+            modalDialog.classList.remove('translate-y-6');
+            modalDialog.classList.add('translate-y-0');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('modalClose').focus();
+        }
+
+        function closeProjectModal() {
+            projectModal.classList.add('opacity-0', 'invisible');
+            projectModal.classList.remove('opacity-100', 'visible');
+            projectModal.setAttribute('aria-hidden', 'true');
+            modalDialog.classList.add('translate-y-6');
+            modalDialog.classList.remove('translate-y-0');
+            document.body.style.overflow = '';
+            if (previouslyFocused) previouslyFocused.focus();
+        }
+
+        document.getElementById('modalClose').addEventListener('click', closeProjectModal);
+        projectModal.addEventListener('click', (e) => {
+            if (e.target === projectModal) closeProjectModal();
+        });
+
+        // --- 6. LIGHTBOX GALLERY LOGIC ---
+        const lightbox = document.getElementById('lightbox');
+        const lbStage = document.getElementById('lbStage');
+        const lbCounter = document.getElementById('lbCounter');
+
+        function renderLightboxSlide() {
+            const slide = activeProject.slides[activeSlideIdx];
+            lbStage.innerHTML = renderSlideGraphic(slide, true);
+            lbCounter.textContent = `${activeSlideIdx + 1} / ${activeProject.slides.length} — ${activeProject.title}`;
+        }
+
+        function openLightbox() {
+            if (!activeProject) return;
+            renderLightboxSlide();
+            lightbox.classList.remove('opacity-0', 'invisible');
+            lightbox.classList.add('opacity-100', 'visible');
+            document.getElementById('lbClose').focus();
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0', 'invisible');
+            lightbox.classList.remove('opacity-100', 'visible');
+            document.getElementById('mainPhotoBtn').focus();
+        }
+
+        function navigateLightbox(delta) {
+            const total = activeProject.slides.length;
+            activeSlideIdx = (activeSlideIdx + delta + total) % total;
+            renderLightboxSlide();
+            selectModalSlide(activeSlideIdx);
+        }
+
+        document.getElementById('mainPhotoBtn').addEventListener('click', openLightbox);
+        document.getElementById('lbClose').addEventListener('click', closeLightbox);
+        document.getElementById('lbPrev').addEventListener('click', () => navigateLightbox(-1));
+        document.getElementById('lbNext').addEventListener('click', () => navigateLightbox(1));
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            const isLbOpen = lightbox.classList.contains('visible');
+            const isModalOpen = projectModal.classList.contains('visible');
+
+            if (isLbOpen) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') navigateLightbox(-1);
+                if (e.key === 'ArrowRight') navigateLightbox(1);
+            } else if (isModalOpen && e.key === 'Escape') {
+                closeProjectModal();
+            }
+        });
+
+        // --- 7. INTERACTIVE CONTACT FORM ---
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const senderName = document.getElementById('name').value.trim();
+            formStatus.innerHTML = `<span class="text-cream">Thank you, <em class="font-serif italic text-leather">${senderName || 'friend'}</em>. Your brief has been logged for Alessandra&rsquo;s studio.</span>`;
+            contactForm.reset();
+        });
+    </script>
 </body>
 </html>
