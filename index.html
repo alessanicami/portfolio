@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alessandra Miller — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--kraft:#a8794a;--paper:#ece5d6;--sheet:#e4dcc6;--pencil:#f0b90b;--red:#d23b2e;--ink:#000;--text:#1b1b1b;
+--display:'Anton','Impact',sans-serif;--body:'DM Sans',system-ui,sans-serif;--hand:'Caveat','Comic Sans MS',cursive}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:var(--paper);color:var(--text);font-family:var(--body)}
+#stage{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden}
+#track{display:flex;height:100%;width:max-content;will-change:transform;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.panel{flex:0 0 auto;height:100%;position:relative;display:flex;align-items:center;padding:0 6vw;overflow:hidden}
+.hero{width:max(100vw,980px);background:var(--kraft);gap:5vw}
+.work{width:max(100vw,900px);background:var(--paper);gap:4vw}
+.dark{width:max(80vw,760px);background:var(--ink);color:#f3efe6;flex-direction:column;align-items:flex-start;justify-content:center;gap:1.2rem}
+.end{width:max(70vw,680px);background:var(--sheet);flex-direction:column;align-items:flex-start;justify-content:center;gap:1.4rem}
+
+h1,h2{font-family:var(--display);font-weight:400;line-height:.92;letter-spacing:.01em;text-transform:uppercase}
+h1{font-size:clamp(3.4rem,11vh,8rem)}
+h2{font-size:clamp(2.6rem,9vh,6rem)}
+p{line-height:1.55;max-width:34ch}
+.hand{font-family:var(--hand);font-size:1.5rem;line-height:1.1}
+
+/* ID badge */
+.badge{width:210px;background:#f5f1e8;border-radius:10px;padding:18px 16px 14px;text-align:center;box-shadow:0 12px 28px rgba(0,0,0,.35);transform:rotate(-3deg);flex:none;position:relative}
+.badge::before{content:"";position:absolute;top:-10px;left:50%;width:44px;height:14px;margin-left:-22px;background:#2b2b2b;border-radius:4px}
+.badge .logo{font-family:var(--display);font-size:1.6rem}
+.badge .photo{width:96px;height:96px;background:var(--kraft);margin:12px auto}
+.badge small{display:block;font-size:.6rem;color:#777;letter-spacing:.06em}
+.badge b{display:block;font-size:1.05rem;margin-top:2px}
+.bars{height:22px;margin-top:10px;background:repeating-linear-gradient(90deg,#000 0 2px,#f5f1e8 2px 4px,#000 4px 5px,#f5f1e8 5px 8px)}
+
+/* clipboard sheet */
+.sheet{background:#e8dfc6;width:min(460px,42vw);min-width:340px;padding:28px 28px 30px;transform:rotate(2deg);box-shadow:0 10px 30px rgba(0,0,0,.35);position:relative;flex:none}
+.sheet::before{content:"";position:absolute;top:-14px;left:50%;width:120px;height:34px;margin-left:-60px;background:#8b8f94;border-radius:4px}
+.sheet h1{color:var(--text);margin:8px 0 14px}
+.sheet .stats{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--text);margin-top:18px}
+.sheet .stats div{padding:9px 0;border-bottom:1px solid rgba(0,0,0,.35);font-size:.9rem}
+.sheet .stats div:nth-child(odd){border-right:1px solid rgba(0,0,0,.35);padding-right:10px}
+.sheet .stats div:nth-child(even){padding-left:12px}
+.sheet .stats b{display:block;font-family:var(--display);font-weight:400;font-size:1.5rem}
+.pencil{position:absolute;right:-70px;top:34px;width:230px;height:16px;background:linear-gradient(90deg,#e58f8f 0 8%,#b9b9b9 8% 14%,var(--pencil) 14% 92%,#e7c98d 92% 96%,#333 96%);transform:rotate(18deg);border-radius:3px;box-shadow:0 4px 8px rgba(0,0,0,.3)}
+.hint{position:absolute;bottom:22px;left:6vw;color:#f3e6cf;font-size:.9rem;display:flex;gap:.6rem;align-items:center}
+
+/* project */
+.cards{display:flex;gap:14px;flex:none}
+.card{background:#000;color:#fff;width:clamp(150px,17vw,200px);aspect-ratio:3/4.2;padding:12px;display:flex;flex-direction:column;justify-content:space-between;font-size:.62rem;letter-spacing:.05em}
+.card .art{flex:1;margin-bottom:10px;display:grid;place-items:center;font-family:var(--display);font-size:2.4rem;line-height:1}
+.a1 .art{background:linear-gradient(135deg,var(--red) 0 50%,#222 50%)}
+.a2 .art{background:repeating-linear-gradient(45deg,var(--red) 0 10px,#111 10px 20px,#fff 20px 24px,#111 24px 34px)}
+.a3{background:#9fd06a;color:#000}.a3 .art{background:#000;color:var(--red);font-size:3.4rem}
+.card:nth-child(2){margin-top:44px}.card:nth-child(3){margin-top:-24px}
+.work .copy{display:flex;flex-direction:column;gap:1rem;flex:none}
+.meta{display:flex;gap:.5rem;flex-wrap:wrap}
+.meta span{border:1.5px solid var(--text);border-radius:99px;padding:.2rem .7rem;font-size:.82rem}
+.note{background:var(--pencil);padding:14px 16px;transform:rotate(-2deg);max-width:230px;box-shadow:0 6px 14px rgba(0,0,0,.2)}
+
+/* dark placeholder panels */
+.num{font-family:var(--display);font-size:clamp(6rem,30vh,15rem);line-height:.8;color:transparent;-webkit-text-stroke:2px #f3efe6}
+.dark .drop{width:min(520px,60vw);height:22vh;border:2px dashed #555;display:grid;place-items:center;color:#888;font-size:.9rem}
+.dark p{color:#c9c3b4}
+
+/* end */
+.end a{font-family:var(--display);font-size:clamp(1.6rem,5vh,3rem);color:var(--text);text-decoration:none;border-bottom:4px solid var(--red);text-transform:uppercase}
+.end a:hover,.end a:focus-visible{background:var(--pencil);outline:none}
+a:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+
+/* progress */
+#bar{position:fixed;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 0px);height:6px;background:rgba(0,0,0,.25);z-index:5}
+#bar i{display:block;height:100%;width:0;background:var(--pencil)}
+nav{position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);right:14px;z-index:5;display:flex;gap:6px}
+nav button{font:700 .78rem var(--body);background:#f5f1e8;border:2px solid var(--text);border-radius:99px;padding:.35rem .8rem;cursor:pointer;color:var(--text)}
+nav button:hover,nav button:focus-visible{background:var(--pencil);outline:none}
+
+@media (max-width:700px){
+ .hero{flex-direction:column;justify-content:center;width:100vw;gap:2rem;padding:0 8vw}
+ .sheet{width:100%;min-width:0}.pencil{display:none}.hint{display:none}
+ .work{width:150vw}nav button:nth-child(n+4){display:none}
+}
+@media (prefers-reduced-motion:reduce){#track{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav aria-label="Sections">
+ <button data-go="0">Intro</button><button data-go="1">GW Sports</button><button data-go="2">Next</button><button data-go="4">Contact</button>
+</nav>
+
+<div id="scroller"><div id="stage"><main id="track">
+ <section class="panel hero" id="s0">
+  <div class="badge" aria-hidden="true">
+   <div class="logo">A★M</div><div class="photo"></div>
+   <small>graphic designer</small><b>Alessandra</b><small style="font-size:.7rem;color:#333">MILLER</small><div class="bars"></div>
+  </div>
+  <div class="sheet">
+   <p class="hand">scouting report</p>
+   <h1>Alessandra Miller</h1>
+   <p>Graphic designer who builds clean, product-first visuals for brands that move.</p>
+   <div class="stats">
+    <div><b>Position</b>Graphic design</div><div><b>Home turf</b>Branding, apparel, packaging</div>
+    <div><b>Tools</b>Affinity, Figma</div><div><b>Status</b>Open to work</div>
+   </div>
+   <span class="pencil" aria-hidden="true"></span>
+  </div>
+  <div class="hint">Scroll down to move right ⟶</div>
+ </section>
+
+ <section class="panel work" id="s1">
+  <div class="cards" aria-label="GW Sports Apparel product graphics">
+   <div class="card a1"><div class="art">GW</div><span>LIMITED DROP · RUNNING SHORTS</span></div>
+   <div class="card a2"><div class="art"></div><span>ALL-OVER PRINT · TEE</span></div>
+   <div class="card a3"><div class="art">$99</div><span>HOLIDAY TEE · AVAILABLE IN 2 COLORS</span></div>
+  </div>
+  <div class="copy">
+   <h2>GW Sports<br>Apparel</h2>
+   <p>Product visuals for a sports apparel line: minimal, clean, and built to sell the garment first.</p>
+   <div class="meta"><span>Affinity Designer</span><span>Minimalist &amp; clean</span><span>Product visuals</span></div>
+   <div class="note hand">Christmas edition! Free shirt design info PDF available on request.</div>
+  </div>
+ </section>
+
+ <section class="panel dark" id="s2">
+  <div class="num">02</div>
+  <h2>Project name</h2>
+  <p>One line on what you made, who it was for, and what changed because of it.</p>
+  <div class="drop">Drop project image here</div>
+ </section>
+
+ <section class="panel dark" id="s3">
+  <div class="num">03</div>
+  <h2>Project name</h2>
+  <p>One line on what you made, who it was for, and what changed because of it.</p>
+  <div class="drop">Drop project image here</div>
+ </section>
+
+ <section class="panel end" id="s4">
+  <p class="hand" style="font-size:2rem">Full time. Let's talk.</p>
+  <h2>Let's build<br>something</h2>
+  <a href="mailto:hello@example.com">hello@example.com</a>
+  <a href="#" style="font-size:1.2rem">Instagram</a>
+  <a href="#" style="font-size:1.2rem">Behance</a>
+ </section>
+</main></div></div>
+<div id="bar" aria-hidden="true"><i></i></div>
+
+<script>
+const sc=document.getElementById('scroller'),t=document.getElementById('track'),fill=document.querySelector('#bar i');
+const panels=[...t.querySelectorAll('.panel')];
+let maxX=0;
+// page height = horizontal distance to travel + one screen, so scrolling down moves the track left
+function size(){maxX=Math.max(0,t.scrollWidth-innerWidth);sc.style.height=(maxX+innerHeight)+'px';draw()}
+function draw(){
+ const y=Math.min(Math.max(scrollY,0),maxX);
+ t.style.transform='translate3d('+(-y)+'px,0,0)';
+ fill.style.width=(maxX?y/maxX*100:0)+'%';
+}
+addEventListener('scroll',draw,{passive:true});
+addEventListener('resize',size);
+addEventListener('load',size);
+if(document.fonts)document.fonts.ready.then(size);
+size();
+document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>scrollTo({top:Math.min(panels[b.dataset.go].offsetLeft,maxX),behavior:'smooth'}));
+addEventListener('keydown',e=>{
+ if(e.key==='ArrowRight')scrollBy({top:innerWidth*.6,behavior:'smooth'});
+ if(e.key==='ArrowLeft')scrollBy({top:-innerWidth*.6,behavior:'smooth'});
+});
+</script>
+</body>
+</html>
