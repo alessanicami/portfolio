@@ -954,14 +954,38 @@
             }
         });
 
-        const contactForm = document.getElementById('contactForm');
+          const contactForm = document.getElementById('contactForm');
         const formStatus = document.getElementById('formStatus');
 
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const senderName = document.getElementById('name').value.trim();
-            formStatus.innerHTML = `<span class="text-cream">Thank you, <em class="font-serif italic text-leather">${senderName || 'friend'}</em>. Your brief has been logged for Alessandra&rsquo;s studio.</span>`;
-            contactForm.reset();
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formStatus.innerHTML = '';
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    formStatus.innerHTML = `<span class="text-cream">Thank you, <em class="font-serif italic text-leather">${senderName || 'friend'}</em>. Your brief has been sent to Alessandra&rsquo;s studio.</span>`;
+                    contactForm.reset();
+                } else {
+                    formStatus.innerHTML = `<span class="text-red-400">Something went wrong. Please email directly or try again.</span>`;
+                }
+            } catch (err) {
+                formStatus.innerHTML = `<span class="text-red-400">Network error. Please try again.</span>`;
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
         });
     </script>
 </body>
